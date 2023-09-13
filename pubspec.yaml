@@ -1,7 +1,7 @@
 name: objectx
-description: A starting point for Dart libraries or applications.
+description: "Extension for Dart's Object: let, letOrNull, String extensions, etc..."
 version: 1.0.0+1-dev
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/sonnts996/objectx
 
 environment:
   sdk: ^3.1.0
@@ -12,5 +12,5 @@ dependencies:
   intl: ^0.18.1
 
 dev_dependencies:
-  owlet_lints: 3.0.0
+  owlet_lints: ^3.0.0
   test: ^1.21.0
