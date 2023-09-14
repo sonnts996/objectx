@@ -38,5 +38,14 @@ void main() {
       expect(map.read('d')?.toNum()?.toInt(), 3);
 
     });
+
+    test('String reader value', () {
+      String a = '3.14';
+
+      expect(a.toNum(), 3.14);
+      expect(a.toInt(), null);
+      expect(a.toDouble(), 3.14);
+      expect(a.toBool(), null);
+    },);
   });
 }
