@@ -91,7 +91,7 @@ void foo(A a) {
 }
 ```
 
-### · ``firstLetter`` extension on ``String`` 
+### · ``firstLetter`` extension on ``String``
 
 ```dart
 final String a = 'Hello World';
@@ -120,10 +120,10 @@ final finalValue = limitIn(0, value, 1);
 
 ### · ``read`` extension on ``Map<K, V>``
 
-## Features and bugs 
+## Features and bugs
 
 > [!Warning]
-> 
+>
 > Some extension is not work in [dynamic] type.<br/>
 > Please cast to [Object?] or somethings like that to use it.<br/>
 > See more https://dart.dev/language/extension-methods#static-types-and-dynamic
