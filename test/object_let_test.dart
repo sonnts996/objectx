@@ -16,14 +16,14 @@ void main() {
       expect(a.let((it) => '$it\n'), 'null\n');
       expect(a?.let((it) => '$it\n'), null);
 
-      expect(a.letOrNull((it) => it, () => ''), '');
-      expect(a.letOrNull((it) => it, () => '').isNullable, false);
-      expect(a.letOrNull((it) => it, () => null).isNullable, true);
+      expect(a.letOrNull((it) => it, onNull: () => ''), '');
+      expect(a.letOrNull((it) => it, onNull: () => '').isNullable, false);
+      expect(a.letOrNull((it) => it, onNull: () => null).isNullable, true);
 
       a = 'Hello World';
       a.length;
       expect(a.let((it) => '$it\n'), 'Hello World\n');
-      expect(a.letOrNull((it) => it, () => ''), 'Hello World');
+      expect(a.letOrNull((it) => it, onNull: () => ''), 'Hello World');
     });
 
     test('IDE validator', () {

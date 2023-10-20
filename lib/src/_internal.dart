@@ -6,6 +6,7 @@ import 'package:meta/meta.dart';
 
 @visibleForTesting
 @isTest
+
 /// Check whether a variable type can be null or not.
 extension ObjectCheckNullable<T> on T {
   /// Check whether a variable type can be null or not.

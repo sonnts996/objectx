@@ -4,7 +4,8 @@
 */
 import 'dart:core' as core;
 
-core.Null nullReturned(it) => null;
+/// Convert [T] type to [R] type
+typedef CastDelegate<T, R> = R Function(T it);
 
 /// Create a closure for [value]
 /// Call [p0] if value is null and p1 for otherwise.\
@@ -16,9 +17,9 @@ core.Null nullReturned(it) => null;
 ///
 R letOrNull<R, T>(
   T? value,
-  R Function(T it) p0,
-  R Function() onNull,
-) =>
+  R Function(T it) p0, {
+  required R Function() onNull,
+}) =>
     (value != null) ? p0(value) : onNull();
 
 /// Create a closure for [value]
@@ -46,6 +47,20 @@ extension ObjectLet<T extends core.Object?> on T {
   /// cast to [Object?] or use [R let<R, T>(T value, R Function(T it) p1)] function.
   /// See https://dart.dev/language/extension-methods#static-types-and-dynamic
   R let<R>(R Function(T it) p0) => p0(this);
+
+  /// Cast this object to [R] if this object is R
+  /// Else return null
+  ///
+  /// if [castDelegate] is a special, the [castDelegate] result is returned
+  R castTo<R extends core.Object?>(
+      {R? defaultValue, CastDelegate<T, R>? castDelegate}) {
+    if (castDelegate != null) {
+      return castDelegate(this);
+    }
+    if (this is R) return this as R;
+    if (null is R) return defaultValue as R;
+    return defaultValue!;
+  }
 }
 
 /// Extension for Nullable Object
@@ -63,9 +78,9 @@ extension ObjectLetOrNull<T extends core.Object> on T? {
   /// cast to [Object?] or use [R letIf<R, T>(T? value, R Function() p0, R Function(T it) p1)] function.
   /// See https://dart.dev/language/extension-methods#static-types-and-dynamic
   R letOrNull<R>(
-    R Function(T it) p0,
-    R Function() onNull,
-  ) =>
+    R Function(T it) p0, {
+    required R Function() onNull,
+  }) =>
       (this != null) ? p0(this as T) : onNull();
 }
 
@@ -73,7 +88,7 @@ extension ObjectLetOrNull<T extends core.Object> on T? {
 /// Note: This extension is not work in [core.dynamic] type,
 /// cast to [Object?] or somethings like that to use it.
 //  See https://dart.dev/language/extension-methods#static-types-and-dynamic
-extension ObjectPrint<T extends core.Object?> on T {
+extension ObjectPrint on core.Object? {
   /// Print this object to console
   ///
   /// Note: [print] is not work in [core.dynamic] type,
@@ -82,7 +97,22 @@ extension ObjectPrint<T extends core.Object?> on T {
   void print({core.String? tag, core.bool debugMode = true}) {
     if (debugMode) {
       // ignore: avoid_print
-      tag.letOrNull((it) => ('$tag: $this'), () => core.print(this));
+      tag.letOrNull((it) => ('$tag: $this'), onNull: () => core.print(this));
     }
   }
+
+  /// object.jsBool() return the value like Boolean(object) in javascript;
+  /// It's false if the object is 0, '' (empty string), false, or NaN. Otherwise, return true
+  /// See: https://www.w3schools.com/js/js_booleans.asp
+  core.bool jsBool() =>
+      this?.let((it) {
+        if (it case 0 || '' || false) {
+          return false;
+        } else if (it is core.double && it.isNaN) {
+          return false;
+        } else {
+          return true;
+        }
+      }) ??
+      false;
 }

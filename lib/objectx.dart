@@ -3,5 +3,7 @@
 /// More dartdocs go here.
 library objectx;
 
-export 'src/objectx_base.dart';
-export 'src/objectx_reader.dart';
+export 'src/mapx.dart';
+export 'src/mathx.dart';
+export 'src/objectx.dart';
+export 'src/stringx.dart';

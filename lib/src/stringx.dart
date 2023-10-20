@@ -1,35 +1,15 @@
 /*
- Created by Thanh Son on 10/09/2023.
+ Created by Thanh Son on 20/10/2023.
  Copyright (c) 2023 . All rights reserved.
 */
+
 import '../objectx.dart';
-
-/// Parse object to bool with Javascript Boolean condition
-extension Object2Bool on Object? {
-
-  /// object.jsBool() return the value like Boolean(object) in javascript;
-  /// It's false if the object is 0, '' (empty string), false, or NaN. Otherwise, return true
-  /// See: https://www.w3schools.com/js/js_booleans.asp
-  bool jsBool() =>
-      this?.let((it) {
-        if (it case 0 || '' || false) {
-          return false;
-        } else if (it is double && it.isNaN) {
-          return false;
-        } else {
-          return true;
-        }
-      }) ??
-      false;
-}
 
 /// Parse String to num, int, double, and bool
 /// Return null if can not parse
 extension StringReader on String {
-
   /// Convert this String to num value, and return [defaultValue] if an error happen
-  num? toNum([num? defaultValue]) =>
-      this.let(num.tryParse) ?? defaultValue;
+  num? toNum([num? defaultValue]) => this.let(num.tryParse) ?? defaultValue;
 
   /// Convert this String to int value, and return [defaultValue] if an error happen.
   /// int.tryParse only converts int value, if the value is double (example: 3.14), it will return null;
@@ -68,15 +48,3 @@ extension StringReader on String {
         : list.map(getFirst).join();
   }
 }
-
-/// Get the value in map
-extension MapReader<K, V> on Map<K, V> {
-
-  /// Return the value of [key] in the map if the value type is R. Otherwise, return defaultValue.
-  R? read<R extends V>(K key, [R? defaultValue]) {
-    final value = this[key];
-    return (value is R) ? value : defaultValue;
-  }
-}
-
-
