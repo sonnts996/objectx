@@ -67,5 +67,12 @@ void main() {
         expect(a.castTo<int>(defaultValue: 0), 0);
       },
     );
+
+    test('is a number', () {
+      expect('123'.isANumber(), true);
+      expect('123a'.isANumber(), false);
+      expect('123.0'.isANumber(), true);
+      expect('123,0'.isNAN(), true);
+    });
   });
 }

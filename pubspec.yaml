@@ -1,6 +1,6 @@
 name: objectx
 description: "Extension for Dart's Object: let, letOrNull, String extensions, etc..."
-version: 1.0.1
+version: 1.0.1+1
 repository: https://github.com/sonnts996/objectx
 
 environment:

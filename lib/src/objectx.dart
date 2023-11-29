@@ -97,7 +97,8 @@ extension ObjectPrint on core.Object? {
   void print({core.String? tag, core.bool debugMode = true}) {
     if (debugMode) {
       // ignore: avoid_print
-      tag.letOrNull((it) => ('$tag: $this'), onNull: () => core.print(this));
+      tag.letOrNull((it) => core.print('$tag: $this'),
+          onNull: () => core.print(this));
     }
   }
 

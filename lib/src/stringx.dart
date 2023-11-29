@@ -33,6 +33,17 @@ extension StringReader on String {
         return null;
       });
 
+  /// Return true if the string can be parsed into a valid number, which may or may not include a single decimal point.
+  bool isANumber() {
+    final regex =
+        RegExp(r'^[+-]?([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)$'); // decimal regex
+    final regex2 = RegExp(r'^[+-]?([0-9]+)$'); // without decimal point
+    return regex.hasMatch(this) || regex2.hasMatch(this);
+  }
+
+  /// return true if this string is not a number
+  bool isNAN() => !isANumber();
+
   /// return the char at the index of the string, throw an error if the index is out of string length.
   String operator [](int index) => substring(index, index + 1);
 
