@@ -9,15 +9,15 @@ import '../objectx.dart';
 /// Return null if can not parse
 extension StringReader on String {
   /// Convert this String to num value, and return [defaultValue] if an error happen
-  num? toNum([num? defaultValue]) => this.let(num.tryParse) ?? defaultValue;
+  num? toNum({num? defaultValue}) => this.let(num.tryParse) ?? defaultValue;
 
   /// Convert this String to int value, and return [defaultValue] if an error happen.
   /// int.tryParse only converts int value, if the value is double (example: 3.14), it will return null;
-  int? toInt([int? defaultValue, int? radix]) =>
+  int? toInt({int? defaultValue, int? radix}) =>
       this.let((it) => int.tryParse(it, radix: radix)) ?? defaultValue;
 
   /// Convert this String to double value, and return [defaultValue] if an error happen.
-  double? toDouble([double? defaultValue]) =>
+  double? toDouble({double? defaultValue}) =>
       this.let(double.tryParse) ?? defaultValue;
 
   /// Convert this String to bool value

@@ -96,9 +96,12 @@ extension ObjectPrint on core.Object? {
   /// See https://dart.dev/language/extension-methods#static-types-and-dynamic
   void print({core.String? tag, core.bool debugMode = true}) {
     if (debugMode) {
-      // ignore: avoid_print
-      tag.letOrNull((it) => core.print('$tag: $this'),
-          onNull: () => core.print(this));
+      tag.letOrNull(
+        // ignore: avoid_print
+        (it) => core.print('$tag: $this'),
+        // ignore: avoid_print
+        onNull: () => core.print(this),
+      );
     }
   }
 

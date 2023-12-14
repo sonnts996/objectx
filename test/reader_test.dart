@@ -33,8 +33,8 @@ void main() {
       expect(map.read('a'), 'Hello World');
       expect(map.read('b')?.toBool(), true);
       expect(map.read('c')?.toInt(), null);
-      expect(map.read('d')?.toInt(1), 1);
-      expect(map.read('d')?.toDouble(1), 3.14);
+      expect(map.read('d')?.toInt(defaultValue: 1), 1);
+      expect(map.read('d')?.toDouble(defaultValue: 1), 3.14);
       expect(map.read('d')?.toNum()?.toInt(), 3);
     });
 
