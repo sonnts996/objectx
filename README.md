@@ -1,12 +1,14 @@
+# ObjectX
+
 The utilities extension for Dart & Flutter object.
 
-![version](https://img.shields.io/pub/v/objectx) ![license](https://img.shields.io/github/license/sonnts996/objectx)
+[![version](https://img.shields.io/pub/v/objectx)](https://pub.dev/packages/objectx) [![license](https://img.shields.io/github/license/sonnts996/objectx)](https://pub.dev/packages/objectx/license)
 
 ## Getting started
 
 ```yaml
 dependencies:
-  objectx: '1.0.1+1'
+  objectx: '1.0.3'
 ```
 
 ## Usage
