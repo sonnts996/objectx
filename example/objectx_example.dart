@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_init_to_null, omit_local_variable_types, prefer_if_null_operators
+// ignore_for_file: avoid_init_to_null, omit_local_variable_types, prefer_if_null_operators, unused_local_variable, prefer_final_locals
 
 import 'package:objectx/objectx.dart';
 

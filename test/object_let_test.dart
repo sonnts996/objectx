@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_expression_function_bodies, avoid_init_to_null
+// ignore_for_file: prefer_interpolation_to_compose_strings, prefer_expression_function_bodies, avoid_init_to_null, prefer_final_locals, avoid_dynamic_calls
 
 /*
  Created by Thanh Son on 10/09/2023.

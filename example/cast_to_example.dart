@@ -1,4 +1,4 @@
-// ignore_for_file: omit_local_variable_types
+// ignore_for_file: omit_local_variable_types, unused_local_variable
 
 /*
  Created by Thanh Son on 20/10/2023.

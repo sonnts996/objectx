@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_locals, prefer_const_declarations
+
 /*
  Created by Thanh Son on 10/09/2023.
  Copyright (c) 2023 . All rights reserved.
@@ -62,7 +64,7 @@ void main() {
         expect(a.castTo<String>(defaultValue: ''), isA<String>());
         expect(a.castTo<String>(castDelegate: (it) => ''), isA<String>());
         expect(a.castTo<int?>(defaultValue: null), null);
-        expect(() => (a.castTo<int>(defaultValue: null)),
+        expect(() => a.castTo<int>(defaultValue: null),
             throwsA(predicate((p0) => true)));
         expect(a.castTo<int>(defaultValue: 0), 0);
       },

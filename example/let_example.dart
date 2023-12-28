@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_expression_function_bodies, unnecessary_lambdas
+// ignore_for_file: prefer_expression_function_bodies, unnecessary_lambdas, unused_local_variable
 
 /*
  Created by Thanh Son on 20/10/2023.

@@ -81,7 +81,7 @@ extension ObjectLetOrNull<T extends core.Object> on T? {
     R Function(T it) p0, {
     required R Function() onNull,
   }) =>
-      (this != null) ? p0(this as T) : onNull();
+      (this != null) ? p0(this!) : onNull();
 }
 
 /// Extension for Nullable Object
@@ -104,19 +104,4 @@ extension ObjectPrint on core.Object? {
       );
     }
   }
-
-  /// object.jsBool() return the value like Boolean(object) in javascript;
-  /// It's false if the object is 0, '' (empty string), false, or NaN. Otherwise, return true
-  /// See: https://www.w3schools.com/js/js_booleans.asp
-  core.bool jsBool() =>
-      this?.let((it) {
-        if (it case 0 || '' || false) {
-          return false;
-        } else if (it is core.double && it.isNaN) {
-          return false;
-        } else {
-          return true;
-        }
-      }) ??
-      false;
 }

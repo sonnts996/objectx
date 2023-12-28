@@ -14,3 +14,8 @@
 ## 1.0.2
 
 - Set defaultValue  as a named field
+
+## 1.0.3
+
+- remove limitIn function, use clamp instead
+- changed dependencies into an upper-limit support version, this is more flexible.
